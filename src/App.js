@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
+import Shoppingcart from './Components/Shoppingcart';
 
 function App() {
   return (
     <div className="App">
-      <h1>Rename Me</h1>
+      <h1>Shopping Cart</h1>
+      <Shoppingcart/>
     </div>
   );
 }
