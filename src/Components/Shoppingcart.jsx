@@ -13,7 +13,7 @@ class Shoppingcart extends Component {
         {
           name: "item2",
           price: 4,
-          quantity: 3,
+          quantity: 0,
         }
       ],
       cartSubTotal: 0,
@@ -57,59 +57,60 @@ class Shoppingcart extends Component {
     let {total} = this.state;
 
     total = calcTax + cartSubTotal;
+
     return (
       <div class="wrapper">
-        <div className="itemPage">
+        <div class="itemPage">
           <button onClick={this.calculateSubTotal}>Ready to Checkout</button>
-          <div className="displayItems">
-            <div className="theItems">
-              <div className="item1">
-                <div className="name">
+          <div class="displayItems">
+            <div class="theItems">
+              <div class="item1">
+                <div class="name">
                   {this.state.items[0].name}
                 </div>
-                <button onClick={()=> this.addQuantity(0)}>+</button>
-                <div className="quantity">
+                <button class="styledButton" onClick={()=> this.subQuantity(0)}>-</button>
+                <div class="quantity">
                   {quantity}
                 </div>
-                <button onClick={()=> this.subQuantity(0)}>-</button>
-                <div className="cost">
+                <button class="styledButton" onClick={()=> this.addQuantity(0)}>+</button>
+                <div class="cost">
                   ${this.state.items[0].price}
                 </div>
               </div>
-              <div className="item2">
-                <div className="name">
+              <div class="item2">
+                <div class="name">
                   {this.state.items[1].name}
                 </div>
-                <button onClick={()=> this.addQuantity(1)}>+</button>
-                <div className="quantity">
+                <button class="styledButton" onClick={()=> this.subQuantity(1)}>-</button>
+                <div class="quantity">
                   {this.state.items[1].quantity}
                 </div>
-                <button onClick={()=> this.subQuantity(1)}>-</button>
-                <div className="cost">
+                <button class="styledButton" onClick={()=> {this.addQuantity(1); this.calculateSubTotal()}}>+</button>
+                <div class="cost">
                   ${this.state.items[1].price}
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="checkoutPage">
-          <div className="orderSummary">
+        <div class="checkoutPage">
+          <div class="orderSummary">
             <h2>Order Summary</h2>
             <div class="subtotalContainer">
               <span class="subtotal">Subtotal: </span>
               <span class="totalItems">({totalItems} items)</span>
               <span class="calculated">${cartSubTotal}</span>
             </div>
-            <div className="deliveryContainer">
+            <div class="deliveryContainer">
               <span class="delivery">Delivery</span>
               <span class="free">Free</span>
             </div>
-            <div className="estimatedTaxContainer">
+            <div class="estimatedTaxContainer">
               <span class="tax">Estimated tax</span>
               <span class="taxAmount">${calcTax}</span>
             </div>
           </div>
-          <div className="total">
+          <div class="totalContainer">
             <span class="total">Total</span>
             <span class="totalCalc">${total}</span>
           </div>

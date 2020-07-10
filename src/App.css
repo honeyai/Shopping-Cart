@@ -7,22 +7,32 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  height: 100vh;
 }
 
 .itemPage{
   border: steelblue solid;
   width: 50vw;
-  
 }
 
 .displayItems{
   border: violet solid;
 }
 
-.items{
+.item1{
   border: rgb(139, 97, 17) solid;
   display: flex;
   justify-content: space-evenly;
+  /* height: 50vh; */
+
+}
+
+.item2{
+  border: rgb(139, 97, 17) solid;
+  display: flex;
+  justify-content: space-evenly;
+  /* height: 50vh; */
+
 }
 
 .checkoutPage{
@@ -30,16 +40,16 @@
   width: 50vw;
 }
 
-.subtotalContainer{
+.subtotalContainer, .deliveryContainer, .estimatedTaxContainer, .totalContainer{
   display: flex;
   justify-content: space-between;
 }
 
-.subtotal{
+.subtotal, .delivery, .tax, .total{
   border: thistle solid;
 }
 
-.calculated{
+.calculated, .free, .taxAmount, .totalCalc{
   border: tomato solid;
 
 }
@@ -47,6 +57,11 @@
 .totalItems{
   border: turquoise solid;
   justify-self: flex-start;
+}
+
+.styledButton {
+  min-width: 1em;
+  max-width: 1em;
 }
 
 
