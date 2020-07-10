@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-class Items extends Component {
-  
-
-  render() {
-    return (
-      <div>
-        
-      </div>
-    );
-  }
+function Items(props) {
+  return (
+    <div>
+      
+    </div>
+  )
 }
 
-export default Items;
+export default Items
+props

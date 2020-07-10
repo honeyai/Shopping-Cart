@@ -6,17 +6,19 @@ class Shoppingcart extends Component {
     this.state = {
       items: [
         {
-          name: "a",
+          name: "item1",
           price: 7,
           quantity: 0,
         },
         {
-          name: "b",
+          name: "item2",
           price: 4,
           quantity: 3,
         }
       ],
       cartSubTotal: 0,
+      tax: 0.04,
+      total: 0,
     }
   }
   calculateSubTotal = () => {
@@ -41,6 +43,8 @@ class Shoppingcart extends Component {
     )
   }    
 
+
+
   render() {
     let {cartSubTotal} = this.state;
 
@@ -48,16 +52,16 @@ class Shoppingcart extends Component {
 
     let {quantity} = this.state.items[0];
 
-    console.log(quantity)
-    if (quantity < 0){
-      quantity = 0;
-    }
+    let calcTax = this.state.tax * cartSubTotal;
 
+    let {total} = this.state;
+
+    total = calcTax + cartSubTotal;
     return (
       <div class="wrapper">
         <div className="itemPage">
           <button onClick={this.calculateSubTotal}>Ready to Checkout</button>
-          <div className="displayItem">
+          <div className="displayItems">
             <div className="theItems">
               <div className="item1">
                 <div className="name">
@@ -65,7 +69,7 @@ class Shoppingcart extends Component {
                 </div>
                 <button onClick={()=> this.addQuantity(0)}>+</button>
                 <div className="quantity">
-                  {this.state.items[0].quantity}
+                  {quantity}
                 </div>
                 <button onClick={()=> this.subQuantity(0)}>-</button>
                 <div className="cost">
@@ -96,6 +100,18 @@ class Shoppingcart extends Component {
               <span class="totalItems">({totalItems} items)</span>
               <span class="calculated">${cartSubTotal}</span>
             </div>
+            <div className="deliveryContainer">
+              <span class="delivery">Delivery</span>
+              <span class="free">Free</span>
+            </div>
+            <div className="estimatedTaxContainer">
+              <span class="tax">Estimated tax</span>
+              <span class="taxAmount">${calcTax}</span>
+            </div>
+          </div>
+          <div className="total">
+            <span class="total">Total</span>
+            <span class="totalCalc">${total}</span>
           </div>
         </div>
       </div>

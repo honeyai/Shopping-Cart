@@ -12,8 +12,18 @@
 .itemPage{
   border: steelblue solid;
   width: 50vw;
+  
 }
 
+.displayItems{
+  border: violet solid;
+}
+
+.items{
+  border: rgb(139, 97, 17) solid;
+  display: flex;
+  justify-content: space-evenly;
+}
 
 .checkoutPage{
   border: teal solid;
